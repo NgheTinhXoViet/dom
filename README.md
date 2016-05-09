@@ -70,5 +70,154 @@ $.get('/url.php', function(json){});
 ```javascript
 this.input({onkeyup: handleKeyup, onmousedown: handleClick, name: 'name'})
 
-// => <input type="text" name="name" onkeyup="handleKeyup()" onmousedown="handleClick()"/>
+// <input type="text" name="name" onkeyup="handleKeyup()" onmousedown="handleClick()"/>
+```
+
+#### Tương tự jQuery
+
+- html
+- append
+- prepend
+- data
+- val
+- text
+- css
+- attr
+- removeAttr
+- show
+- hide
+- toggle
+- hasClass
+- addClass
+- removeClass
+- is
+- has
+- parent
+- children
+- find
+- lastChild
+- firstChild
+- next
+- prev
+
+* Lưu ý:
+
+```javascript
+// children có thể được đặt ngầm
+this.button({node: 'button_name', className: 'btn'}, 'Click Me')
+
+// <button>Click Me</button>
+// Khi gọi
+
+form.children('button')
+// or
+form.children('button_name')
+// or 
+form.children('.btn')
+
+// Vì mục đích dùng lại nhiều lần nên mình đã cache nó lại.
+// Tuy nhiên có những lúc cache kết quả thì nó lại sai, cho nên mình có tạo hàm find để khắc phục vấn đề này.
+```
+
+#### Thêm và sửa một số tính năng
+
+- changeClass(oldClassName, newClassName)
+- disable(value)
+- check(value): using for input[type="checkbox"]
+- select(value)
+- insertBefore
+- insertAfter
+- set(key, value)
+- unset
+- reset
+- incrby
+- get
+- call
+
+```javascript
+// disable, check, select
+var btn = form.children('button');
+btn.disable(true);
+
+btn.disable(false);
+
+var disabled = btn.disable(); // true or false
+
+// <input type="text" name="text" class="form-control">
+// <button type="submit">Post</button>
+
+var show_upload = $.create({
+	render: function(){
+		return(
+			this.div({class: 'clearfix'},
+				this.image('src')
+			)
+		)
+	}
+});
+
+show_upload.insertAfter(btn); // show_upload insert phía sau btn
+
+// <input type="text" name="text" class="form-control">
+// <button type="submit">Post</button>
+// <div class="clearfix"><img src="src"></div>
+
+// or
+show_upload.insertBefore(dom.children('.form-control')); // show_upload thêm vào trước thẻ input[type="text"]
+
+// <div class="clearfix"><img src="src"></div>
+// <input type="text" name="text" class="form-control">
+// <button type="submit">Post</button>
+```
+
+* Vì mục đích sử dụng lại nên mình có thêm các hàm như set, unset, get, reset, incrby, call 
+để có thể dễ dàng làm việc với các chức năng realtime như: like, comment.
+Tuy nhiên còn rất nhiều trường hợp khác nữa mà khi sử dụng bạn mới biết được.
+
+```javascript
+function PostBox(post){
+	var dom = $.create({
+		data: {
+			setLike: function(action, isMe, countLike){
+				if(isMe){
+					if(action==='like') dom.children('button_like').addClass('liked');
+					else dom.children('button_like').removeClass('liked');
+				};
+				dom.children('count_like').html(countLike);
+			}
+		},
+		button_like: function(){
+			if(post.liked()) socket.emit('like', {action: 'unlike', count: post.getCountLike-1, post_id: post.getId(), user_id: cookie.get('user')});
+			else socket.emit('like', {action: 'like', count: post.getCountLike()+1, post_id: post.getId(), user_id: cookie.get('user')});
+		},
+		render: function(){
+			return(
+				this.div({className: 'post', data: {id: post.getId()}},
+					this.div({className: 'post-text'}, post.getText()),
+					this.div({className: 'post-count'}, 
+						this.span({node: 'count_like'}, post.getCountLike())
+					),
+					this.div({className: 'post-btn'},
+						this.button({node: 'button_like', onclick: this.button_like}, function(btn){
+							if(post.liked()) btn.addClass('liked')
+						})
+					)
+				)
+			)
+		}
+	});
+	return dom;
+};
+var socket = io.connect();
+var user_cookie = cookie.get('user');
+var content = $('#content');
+
+content.append(PostBox(post));
+
+socket.on('like', function(data){
+	var dom_post = content.children('[data-id="'+data.post_id+'"]');
+	if(dom_post){
+		dom_post.call('setLike', data.action, data.user_id===user_cookie, data.count);
+	}
+});
 ```

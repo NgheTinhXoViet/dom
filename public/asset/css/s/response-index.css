@@ -1,0 +1,12 @@
+@media(max-width: 768px){
+    #content_personal{
+        display: none;
+    }
+    #content_post{
+        margin-left: 5px;
+        min-width: 490px;
+    }
+    #friend_online{
+        display: none;
+    }
+}

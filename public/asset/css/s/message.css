@@ -1,0 +1,77 @@
+.user-message{
+    background-color: #FFFFFF;
+}
+.user-message>header{
+    padding: 4px 10px;
+    border: 1px solid #EBE7E7;
+}
+.user-message>footer{
+    padding: 4px 10px;
+    border: 1px solid #EBE7E7;
+    border-bottom-color: #CCCCCC;
+}
+.user-message>.list-message>.review-message{
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+.user-message>.list-message{
+  margin-bottom: 0px !important;
+}
+.user-message>.list-message>.review-message>.user-avatar {
+    width: 43px;
+    height: 43px;
+}
+.user-message>.list-message>.review-message>.user-avatar>img{
+  width: 100%;
+  height: 100%;
+}
+
+.user-message>.list-message>.review-message>.message-info {
+    height: 43px;
+    padding: 2px 7px;
+    line-height: 1.2;
+}
+
+.user-message>.list-message>.review-message>.message-info>span:first-child {
+    display: inherit;
+    font-size: 17px;
+    font-weight: bold;
+    color: #292626;
+}
+
+.user-message>.list-message>.review-message>.message-info>span:not(:first-child) {
+    font-size: 13.5px;
+    color: #555;
+}
+
+.user-message>.list-message>.review-message>.message-info>.glyphicon {
+    margin-right: 6px;
+    font-size: 11px !important;
+}
+
+.user-message>.list-message>.review-message>.message-time {
+    line-height: 43px;
+    font-size: 14px;
+}
+.user-message>a.message-load-more{
+  width: 100% !important;
+  padding: 4px 10px;
+  display: block;
+  border: 1px solid #EEEEEE;
+  border-top: 0;
+}
+.user-message>.list-message>.not-message{
+  padding: 8px 10px 5px;
+}
+/* /message/create.html */
+#user_message_create {
+    margin: 0;
+    padding: 0;
+}
+
+#user_message_create>.user-message-label {
+    background-color: #FFFFFF;
+    padding: 5px 10px;
+    font-weight: bold;
+}

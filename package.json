@@ -1,0 +1,24 @@
+{
+  "name": "dom",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NgheTinhXoViet/dom.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NgheTinhXoViet/dom/issues"
+  },
+  "homepage": "https://github.com/NgheTinhXoViet/dom#readme",
+  "dependencies": {
+    "co-body": "^4.2.0",
+    "koa": "^1.2.0",
+    "koa-static": "^2.0.0"
+  }
+}

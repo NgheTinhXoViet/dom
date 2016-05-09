@@ -1,0 +1,204 @@
+.account-link{
+	margin-left: 10px;
+	font-size: 19px;
+	background-color: #CCCCCC;
+	padding: 2px 0px;
+	left:-2px; right: 9px;
+	text-align: center;
+}
+a:hover{
+	text-decoration: none;
+}
+.account input{
+    display: inherit;
+    width: 100%;
+    height: 42px;
+    line-height: 1;
+    font-size: 18px;
+    margin-bottom: 0px;
+    outline: 0;
+    padding: 8px 10px;
+}
+.account{
+    padding: 5px 8px 10px;
+}
+.form-control{
+    border: 0;
+    padding: 10px;
+}
+.account-btn{
+    height: 40px !important;
+    line-height: 0 !important;
+    border-radius: 0;
+    width: 100%;
+    font-size: 16px;
+}
+
+.input-group{
+	border: 1px solid #CCCCCC;
+	margin-bottom: 5px;
+}
+.input-group>input:first-child{
+	border-bottom: 1px solid #CCCCCC;
+}
+
+select{
+	border: 1px solid #CCCCCC;
+	height: 30px;
+	width: 70px;
+}
+select[name="day"]{
+	margin-right: -3.313px;
+}
+select[name="year"]{
+	margin-left: -4.2969px;
+}
+#header{
+	background-color:#1C1C1C;
+	color:#ffffff;
+	text-align:center;
+	font-weight:bold;
+	font-size:17px;
+	z-index: 1;
+	height: 32px;
+	line-height: 32px;
+}
+#header a{
+	text-decoration: none;
+	color: #FFFFFF;
+}
+body{
+	background-color: #E9EAED;
+	width: 100%;
+	margin: 0;
+	font-size: 15.5px;
+}
+
+div#content {
+    margin-bottom: -10px;
+}
+.account>label{
+	font-size: 17.6px;
+}
+.account>label[for="register"]{
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+.account .form-group{
+	margin-bottom: 10px;
+}
+
+select[name="lang"]{
+	margin-left: 10px;
+	min-width: 100px;
+}
+.error-input{
+	border: 1px solid #C41A16 !important;
+}
+#register .error{
+	margin-top: -6px;
+	font-size: 15px;
+}
+#register div[for="message"]{
+	margin: 7px 0px;
+}
+#register input[type=text]{
+	border: 1px solid #CCCCCC;
+}
+#birthday>div.pull-left{
+    width: 70%;
+    margin-left: 15px;
+}
+#birthday>div.pull-left span{
+    width: 30%;
+    margin: 0px 2px;
+}
+
+#birthday>div.pull-left span>input{
+    height: 28px;
+    text-align: center;
+    font-size: 17px;
+    line-height: 1.3;
+    padding: 0;
+}
+#birthday>div.pull-left span>input::-webkit-input-placeholder {
+   font-size: 16px;
+   line-height: 1.399;
+}
+#birthday>div.pull-left span>input:-moz-placeholder { /* Firefox 18- */
+   font-size: 16px;
+   line-height: 1.399;  
+}
+#birthday>div.pull-left span>input::-moz-placeholder {  /* Firefox 19+ */
+   font-size: 16px;
+   line-height: 1.399;  
+}
+#birthday>div.pull-left span>input:-ms-input-placeholder {  
+   font-size: 16px;
+   line-height: 1.399;  
+}
+
+#birthday>div.pull-left span:nth-child(1)>input{
+    width: 53px;
+}
+#birthday>div.pull-left span:nth-child(3)>input{
+    width: 64px;
+}
+#birthday>div.pull-left span:nth-child(5)>input{
+    width: 67px;
+}
+
+#register>div:nth-child(1) input[name="fname"]{
+    margin-bottom: 15px;
+}
+#register>div:nth-child(3){
+    margin-top: 12px;
+}
+#register>div:nth-child(3)>select{
+    margin-left: 21.5px;
+    height: 28px;
+    width: 80px;
+    outline: none;
+}
+
+#register>.form-group input{
+    margin-bottom: 10px;
+}
+
+#footer{
+    width: 100%;
+    margin-top: 10px;
+}
+#footer>.container-fluid>.row:nth-child(2)>div{
+    width: 33.3333333%;
+    text-align: center !important;
+}
+.user-avatar{
+    max-width: 83px;
+    max-height: 83px;
+    margin: 5px auto !important;
+}
+.user-avatar>img{
+    width: 100%;
+}
+.user-info{
+	margin-left: 8px;
+	max-width: 90%;
+}
+.user-name{
+    font-weight: bold;
+    font-size: 15px;
+}
+.forgot-choose span:first-child>input{
+	height: 20px;
+	display: inherit !important;
+}
+.forgot-choose span:first-child{
+	width: 20px;
+	margin-left: 10px;
+	display: inline-block !important;
+}
+.forgot-choose span:last-child{
+	margin-left: 15px;
+	margin: 3px 10px;
+}

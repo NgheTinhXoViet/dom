@@ -37,7 +37,7 @@ $('body').html(form);
 - email (input[name="email"]) placeholder
 - select: name, list option
 - label
-- link (<a href>)
+- link (a[href])
 - header
 - section
 - footer
@@ -45,7 +45,7 @@ $('body').html(form);
 - span
 - i
 - div
-- image (<img src>): src
+- image (img[src]): src
 - ul
 - li
 - table
@@ -65,9 +65,10 @@ $.get('/url.php', {id: 1}, function(json){
 $.get('/url.php', function(json){});
 ```
 
-
 #### Thêm sự kiện cho dom
 
 ```javascript
+this.input({onkeyup: handleKeyup, onmousedown: handleClick, name: 'name'})
 
+// => <input type="text" name="name" onkeyup="handleKeyup()" onmousedown="handleClick()"/>
 ```

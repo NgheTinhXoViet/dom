@@ -173,12 +173,14 @@ show_upload.insertBefore(dom.children('.form-control')); // show_upload thêm v�
 * Vì mục đích sử dụng lại nên mình có thêm các hàm như set, unset, get, reset, incrby, call 
 để có thể dễ dàng làm việc với các chức năng realtime như: like, comment.
 Tuy nhiên còn rất nhiều trường hợp khác nữa mà khi sử dụng bạn mới biết được.
+Ví dụ như dễ dàng làm chức năng chỉnh sửa bình luận, bài viết như facebook, ...
 
 ```javascript
 function PostBox(post){
 	var dom = $.create({
 		data: {
-			setLike: function(action, isMe, countLike){
+			setLike: function(action, isMe){
+				var countLike = action==='like'?(post.getCountLike()+1):(post.getCountLike-1);
 				if(isMe){
 					if(action==='like') dom.children('button_like').addClass('liked');
 					else dom.children('button_like').removeClass('liked');
@@ -187,8 +189,18 @@ function PostBox(post){
 			}
 		},
 		button_like: function(){
-			if(post.liked()) socket.emit('like', {action: 'unlike', count: post.getCountLike-1, post_id: post.getId(), user_id: cookie.get('user')});
-			else socket.emit('like', {action: 'like', count: post.getCountLike()+1, post_id: post.getId(), user_id: cookie.get('user')});
+			var data = {
+				action: 'unlike',
+				post_id: post.getId(), 
+				user_id: cookie.get('user')
+			};
+
+			// Đếm số lần click like, để hạn chế spam
+			dom.incrby('click_like', 1);
+
+			if(dom.get('click_like')<5) socket.emit('like', data);
+
+			return dom.setLike(data.action, true);
 		},
 		render: function(){
 			return(

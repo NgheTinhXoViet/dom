@@ -199,8 +199,6 @@ function PostBox(post){
 			dom.incrby('click_like', 1);
 
 			if(dom.get('click_like')<5) socket.emit('like', data);
-
-			return dom.setLike(data.action, true);
 		},
 		render: function(){
 			return(

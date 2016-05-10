@@ -231,3 +231,25 @@ socket.on('like', function(data){
 	}
 });
 ```
+
+* Làm việc với cookie:
+```javascript
+if(cookie.has('user')) alert(cookie.get('user'));
+
+cookie.init({day: 1, path: '/'}).set({user: 1, name: 'Nguyen Van A'}); // set cookie trong 1 ngày
+```
+
+* Làm việc với routes tạo singgle page
+```javascript
+app.router('/', function(){
+	if(!window.account_login){
+		// load template here
+		$.get('/asset/js/template/account/login.js', function(text){
+			var script = document.createElement('script');
+			script.innerHTML = text;
+			document.querySelector('head').appendChild(script);
+		}, false);
+	};
+	$('#content').html(window.account_login);
+});
+```
